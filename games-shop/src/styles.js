@@ -17,8 +17,10 @@ const styles = {
   text: { textAlign: "center" },
 
   productsImage: {
+    width: "400px",
+    height: "400px",
     display: "flex",
-    paddingLeft: "15%",
+    paddingLeft: "20%",
   },
 };
 

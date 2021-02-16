@@ -4,17 +4,20 @@ import img4 from "./images/4.png";
 
 const products = [
   {
+    id: 1,
     name: "Ps5 Controller",
     price: 15,
     image: img2,
   },
 
   {
+    id: 2,
     name: "Gameing Headset",
     price: 20,
     image: img4,
   },
   {
+    id: 3,
     name: "LED Gaming Keyboard",
     price: 7,
     image: img3,
