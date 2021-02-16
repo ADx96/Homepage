@@ -1,10 +1,4 @@
-import "./App.css";
-import img1 from "./images/1.jpg";
-import React from "react";
-import styles from "./styles";
-import products from "./Products";
-
-function App() {
+function components() {
   return (
     <div>
       <div className="title">
@@ -28,4 +22,3 @@ const productsList = products.map((product) => {
     </div>
   );
 });
-export default App;
