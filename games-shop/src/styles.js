@@ -1,27 +1,11 @@
-const styles = {
-  body: { backgroundColor: "#FBFEFC" },
-  Products: { margin: "20px" },
-  ProductImage: {
-    width: "400px",
-    height: "400px",
-    marginLeft: "auto",
-    marginRight: "auto",
-  },
+import { createGlobalStyle } from "styled-components";
 
-  shopImage: {
-    display: "block",
-    marginLeft: "auto",
-    marginRight: "auto",
-    width: "50%",
-  },
-  text: { textAlign: "center" },
+const GlobalStyle = createGlobalStyle`
+body {
+    color: ${(props) => props.theme.mainColor};
+    background-color: ${(props) => props.theme.backgroundColor}
+  }
 
-  productsImage: {
-    width: "400px",
-    height: "400px",
-    display: "flex",
-    paddingLeft: "20%",
-  },
-};
+`;
 
-export default styles;
+export default GlobalStyle;
