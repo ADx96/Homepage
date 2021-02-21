@@ -9,23 +9,23 @@ const theme = {
   light: {
     mainColor: "#242424", // main font color
     backgroundColor: "#fefafb", // main background color
-    pink: "#ff85a2",
+    Blue: "#blue",
   },
   dark: {
     mainColor: "#fefafb", // main font color
     backgroundColor: "#242424", // main background color
-    pink: "#ff85a2",
+    Blue: "1b1b52",
   },
 };
 
 function App() {
   const [currentTheme, setCurrentTheme] = useState("light");
-  const [buttonText, setButtonText] = useState("DarkMode");
+  const [buttonText, setButtonText] = useState("Darkmode");
 
   const toggleTheme = () => {
     setCurrentTheme(currentTheme === "light" ? "dark" : "light");
-    if (currentTheme === "light") setButtonText("DarkMode");
-    else setButtonText("LightMode");
+    if (currentTheme === "light") setButtonText("LightMode");
+    else setButtonText("DarkMode");
   };
   return (
     <ThemeProvider theme={theme[currentTheme]}>
