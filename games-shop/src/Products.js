@@ -4,7 +4,6 @@ import img4 from "./images/4.png";
 
 const products = [
   {
-    id: 1,
     name: "Ps5 Controller",
     price: 15,
     image: img2,
