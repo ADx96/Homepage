@@ -1,29 +1,23 @@
 import React from "react";
-import styled from "styled-components";
-
-const ProductWrapper = styled.div`
-  display: inline-block;
-  margin-left: 10%;
-  img {
-    height: 300px;
-    margin-left: auto;
-    margin-right: auto;
-  }
-  p {
-    text-align: center;
-    &.product-price {
-      color: ${(props) => props.theme.blue};
-    }
-  }
-`;
+import ProductWrapper from "../styles";
+import DeleteButtonStyled from "../styles";
+import { useState } from "react";
 
 const ProductItem = (props) => {
   const product = props.product;
+
+  const handleDelete = (props) => {
+    alert(`Delete product #${product.id}`);
+    props.deleteProduct(product.id);
+  };
+
   return (
     <ProductWrapper>
       <img alt={product.name} src={product.image} />
       <p>{product.name}</p>
+      <p>{product.description}</p>
       <p className="product-price">{product.price} KD</p>
+      <DeleteButtonStyled onClick={handleDelete}>Delete</DeleteButtonStyled>
     </ProductWrapper>
   );
 };
