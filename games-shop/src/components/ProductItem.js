@@ -1,19 +1,23 @@
 import React from "react";
 import ProductWrapper from "../styles";
 import DeleteButtonStyled from "../styles";
-import { useState } from "react";
 
 const ProductItem = (props) => {
   const product = props.product;
 
-  const handleDelete = (props) => {
+  const handleDelete = () => {
     alert(`Delete product #${product.id}`);
     props.deleteProduct(product.id);
   };
 
   return (
     <ProductWrapper>
-      <img alt={product.name} src={product.image} />
+      <img
+        alt={product.name}
+        src={product.image}
+        onClick={() => props.setProduct(product)}
+      />
+
       <p>{product.name}</p>
       <p>{product.description}</p>
       <p className="product-price">{product.price} KD</p>

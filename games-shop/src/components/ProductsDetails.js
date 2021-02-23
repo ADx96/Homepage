@@ -1,15 +1,25 @@
 import React from "react";
-import Product from "./ProductList";
+import { DetailWrapper } from "../styles";
+import { Link, useParams } from "react-router-dom";
 
-const CookieDetail = (props) => {
+const ProductDetails = (props) => {
+  const productId = useParams().productId;
+  const product = props.products.find((product) => product.id === +productId);
   return (
-    <div>
-      <h1>{Product.name}</h1>
-      <img src={Product.image} alt={Product.name} />
-      <p>{Product.description}</p>
-      <p>{Product.price} KD</p>
-    </div>
+    <DetailWrapper>
+      <Link to="/cookies/1">
+        <img
+          src={product.image}
+          alt={product.name}
+          onClick={() => alert(product.id)}
+        />
+      </Link>
+
+      <h1>{product.name}</h1>
+      <p>{product.description}</p>
+      <p className="product-price">{product.price} KD</p>
+    </DetailWrapper>
   );
 };
 
-export default CookieDetail;
+export default ProductDetails;
