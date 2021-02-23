@@ -7,26 +7,30 @@ import { useState } from "react";
 import { Route, Switch } from "react-router";
 import NavBar from "./components/NavBar";
 import ProductDetails from "./components/ProductsDetails";
+import products from "./Products";
 
-function App(products) {
+function App() {
   const [currentTheme, setCurrentTheme] = useState("Light");
-
   const [product, setProduct] = useState(null);
-
-  const setView = () => {
-    if (product) return <ProductDetails product={product} />;
-    return <Product setProduct={setProduct} />;
-  };
-  const toggleTheme = () => {
-    setCurrentTheme(currentTheme === "Light" ? "Dark" : "Light");
-  };
   const [_products, setProducts] = useState(products);
 
   const deleteProduct = (productId) => {
     const updatedProducts = _products.filter(
-      (product) => product.id !== productId
+      (product) => product.id !== +productId
     );
     setProducts(updatedProducts);
+    setProduct(null);
+  };
+
+  const selectProduct = (productId) => {
+    const selectedProduct = products.find(
+      (product) => product.id === productId
+    );
+    setProduct(selectedProduct);
+  };
+
+  const toggleTheme = () => {
+    setCurrentTheme(currentTheme === "Light" ? "Dark" : "Light");
   };
 
   return (
@@ -35,11 +39,18 @@ function App(products) {
       <GlobalStyle />
       <Switch>
         <Route path="/Product">
-          <Product setProduct={setProduct} deleteProduct={deleteProduct} />
+          <Product
+            products={_products}
+            deleteProduct={deleteProduct}
+            selectProduct={selectProduct}
+          />
         </Route>
         <Route path="/Product/:productId">
-          <ProductDetails />
-          {setView()}
+          <ProductDetails
+            product={_products}
+            deleteProduct={deleteProduct}
+            selectProduct={selectProduct}
+          />
         </Route>
         <Route exact path="/">
           <ShopComponents />
