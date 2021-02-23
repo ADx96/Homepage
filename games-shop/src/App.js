@@ -38,7 +38,7 @@ function App() {
       <NavBar currentTheme={currentTheme} toggleTheme={toggleTheme} />
       <GlobalStyle />
       <Switch>
-        <Route path="/Product">
+        <Route path="/Product" exact>
           <Product
             products={_products}
             deleteProduct={deleteProduct}
@@ -46,13 +46,9 @@ function App() {
           />
         </Route>
         <Route path="/Product/:productId">
-          <ProductDetails
-            product={_products}
-            deleteProduct={deleteProduct}
-            selectProduct={selectProduct}
-          />
+          <ProductDetails products={products} />
         </Route>
-        <Route exact path="/">
+        <Route path="/" exact>
           <ShopComponents />
         </Route>
       </Switch>

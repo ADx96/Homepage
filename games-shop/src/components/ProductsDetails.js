@@ -1,23 +1,23 @@
 import React from "react";
 import { DetailWrapper } from "../styles";
+import { useParams } from "react-router-dom";
 import { Link } from "react-router-dom";
-import DeleteButton from "../Buttons/DeleteButton";
-const ProductDetails = (props) => {
-  const product = props.product;
 
+const ProductDetails = (props) => {
+  const productId = useParams().productId;
+  const product = props.products.find((product) => product.id === +productId);
   return (
     <DetailWrapper>
-      <p onClick={props.selectProduct}>Back to Products</p>
-      <h1>{product.name}</h1>
-      <Link to="/cookies/1">
-        <img src={product.image} alt={product.name} />
+      <Link to={`/Product/`}>
+        <p>Back to Products</p>
       </Link>
+
+      <h1>{product.name}</h1>
+
+      <img src={product.image} alt={product.name} />
+
       <p>{product.description}</p>
       <p>{product.price} KD</p>
-      <DeleteButton
-        productId={product.id}
-        deleteProduct={props.deleteProduct}
-      />
     </DetailWrapper>
   );
 };

@@ -1,18 +1,14 @@
 import React from "react";
 import ProductWrapper from "../styles";
 import DeleteButton from "../Buttons/DeleteButton";
-import Link from "../styles";
+import { Link } from "react-router-dom";
 const ProductItem = (props) => {
   const product = props.product;
 
   return (
     <ProductWrapper>
       <Link to={`/Product/${product.id}`}>
-        <img
-          alt={product.name}
-          src={product.image}
-          onClick={() => props.selectProduct(product.id)}
-        />
+        <img alt={product.name} src={product.image} />
       </Link>
 
       <p>{product.name}</p>

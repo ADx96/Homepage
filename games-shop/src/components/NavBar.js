@@ -3,17 +3,6 @@ import { NavLink } from "react-router-dom";
 import { ThemeButton, NavStyled, Logo } from "../styles";
 import lightLogo from "../images/logo.png";
 import darkLogo from "../images/logo.png";
-import styled from "styled-components";
-
-const NavItem = styled(NavLink)`
-  padding: 0.25em 1em;
-  color: ___CSS_0___;
-
-  &.active {
-    color: ___CSS_1___;
-    background-color: fuchsia;
-  }
-`;
 
 const NavBar = (props) => {
   return (
