@@ -4,8 +4,10 @@ import { useParams } from "react-router-dom";
 import { Link } from "react-router-dom";
 
 const ProductDetails = (props) => {
-  const productId = useParams().productId;
-  const product = props.products.find((product) => product.id === +productId);
+  const productSlug = useParams().productSlug;
+  const product = props.products.find(
+    (product) => product.slug === productSlug
+  );
   return (
     <DetailWrapper>
       <Link to={`/Product/`}>

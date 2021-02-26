@@ -8,23 +8,24 @@ import { Route, Switch } from "react-router";
 import NavBar from "./components/NavBar";
 import ProductDetails from "./components/ProductsDetails";
 import products from "./Products";
+import { Redirect } from "react-router-dom";
 
 function App() {
   const [currentTheme, setCurrentTheme] = useState("Light");
   const [product, setProduct] = useState(null);
   const [_products, setProducts] = useState(products);
 
-  const deleteProduct = (productId) => {
+  const deleteProduct = (productSlug) => {
     const updatedProducts = _products.filter(
-      (product) => product.id !== +productId
+      (product) => product.slug !== +productSlug
     );
     setProducts(updatedProducts);
     setProduct(null);
   };
 
-  const selectProduct = (productId) => {
+  const selectProduct = (productSlug) => {
     const selectedProduct = products.find(
-      (product) => product.id === productId
+      (product) => product.slug === productSlug
     );
     setProduct(selectedProduct);
   };
@@ -45,11 +46,16 @@ function App() {
             selectProduct={selectProduct}
           />
         </Route>
-        <Route path="/Product/:productId">
+        <Route path="/Product/:productSlug">
           <ProductDetails products={products} />
         </Route>
         <Route path="/" exact>
           <ShopComponents />
+        </Route>
+        <Route path="/404" exact></Route>
+        <h1>404</h1>
+        <Route path="">
+          <Redirect to="/404" />
         </Route>
       </Switch>
     </ThemeProvider>

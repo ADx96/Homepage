@@ -7,7 +7,7 @@ const ProductItem = (props) => {
 
   return (
     <ProductWrapper>
-      <Link to={`/Product/${product.id}`}>
+      <Link to={`/Product/${product.slug}`}>
         <img alt={product.name} src={product.image} />
       </Link>
 

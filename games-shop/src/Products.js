@@ -8,7 +8,8 @@ const products = [
     name: "Ps5 Controller",
     price: 15,
     image: img2,
-    description: "some cookie.. sold by dozens",
+    slug: "ps5-controller",
+    description: "a ps5 controller ",
   },
 
   {
@@ -16,14 +17,16 @@ const products = [
     name: "Gameing Headset",
     price: 20,
     image: img4,
-    description: "some cookie.. sold by dozens",
+    slug: "gaming-headset",
+    description: "gaming headset for ps5/pc/xbox",
   },
   {
     id: 3,
     name: "LED Gaming Keyboard",
     price: 7,
     image: img3,
-    description: "some cookie.. sold by dozens",
+    slug: "led-gaming-keyboard",
+    description: "Led Keyboard supports all consoles/pc ",
   },
 ];
 
