@@ -86,5 +86,15 @@ const DetailWrapper = styled.div`
     vertical-align: middle;
   }
 `;
+
+export const CreateButtonStyled = styled.button`
+  color: ${(props) => props.theme.backgroundColor};
+  background-color: ${(props) => props.theme.mainColor};
+
+  &:hover {
+    color: ${(props) => props.theme.mainColor};
+    background-color: ${(props) => props.theme.backgroundColor};
+  }
+`;
 export { GlobalStyle, ThemeButton, SearchBarStyled, theme, DetailWrapper };
 export default ProductWrapper;

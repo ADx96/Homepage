@@ -3,11 +3,14 @@ import ProductsItem from "../components/ProductItem";
 import SearchBar from "./Searchbar";
 import ProductWrapper from "../styles";
 import { useState } from "react";
+import AddButton from "../Buttons/AddButton";
+import productsStore from "../Stores/ProductStore";
+import { observer } from "mobx-react";
 
-const Product = (props) => {
+export const Product = (props) => {
   const [query, setQuery] = useState("");
 
-  const productList = props.products
+  const productList = productsStore.products
     .filter((product) =>
       product.name.toLowerCase().includes(query.toLowerCase())
     )
@@ -17,6 +20,7 @@ const Product = (props) => {
         key={product.id}
         deleteProduct={props.deleteProduct}
         selectProduct={props.selectProduct}
+        createProduct={props.createProduct}
       />
     ));
 
@@ -24,7 +28,8 @@ const Product = (props) => {
     <div>
       <SearchBar setQuery={setQuery} />
       <ProductWrapper>{productList}</ProductWrapper>
+      <AddButton />
     </div>
   );
 };
-export default Product;
+export default observer(Product);
