@@ -10,9 +10,13 @@ class ProductStore {
     product.slug = slugify(product.name);
     this.products.push(product);
   };
+  deleteProduct = (productId) => {
+    this.products = this.products.filter((product) => product.id !== productId);
+  };
   constructor() {
     makeObservable(this, {
       products: observable,
+      deleteProduct: action,
       createProduct: action,
     });
   }
