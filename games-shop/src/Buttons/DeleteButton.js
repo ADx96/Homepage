@@ -1,9 +1,9 @@
 import { DeleteButtonStyled } from "../styles";
 import productsStore from "../Stores/ProductStore";
 
-const DeleteButton = ({ productid }) => {
+const DeleteButton = ({ productId }) => {
   return (
-    <DeleteButtonStyled onClick={() => productsStore.deleteProduct(productid)}>
+    <DeleteButtonStyled onClick={() => productsStore.deleteProduct(productId)}>
       Delete
     </DeleteButtonStyled>
   );

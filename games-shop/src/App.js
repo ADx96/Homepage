@@ -34,7 +34,7 @@ function App() {
           <Product />
         </Route>
         <Route path="/Product/:productSlug">
-          <ProductDetails products={products} />
+          <ProductDetails />
         </Route>
         <Route path="/" exact>
           <ShopComponents />

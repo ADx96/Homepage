@@ -2,10 +2,12 @@ import React from "react";
 import { DetailWrapper } from "../styles";
 import { useParams } from "react-router-dom";
 import { Link } from "react-router-dom";
+import productsStore from "../Stores/ProductStore";
+import { observer } from "mobx-react";
 
-const ProductDetails = (props) => {
+const ProductDetails = () => {
   const productSlug = useParams().productSlug;
-  const product = props.products.find(
+  const product = productsStore.products.find(
     (product) => product.slug === productSlug
   );
   return (
@@ -24,4 +26,4 @@ const ProductDetails = (props) => {
   );
 };
 
-export default ProductDetails;
+export default observer(ProductDetails);

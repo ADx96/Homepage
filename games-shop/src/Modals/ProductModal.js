@@ -16,9 +16,9 @@ const ProductModal = ({ isOpen, closeModal, createProduct }) => {
     setProduct({ ...product, [event.target.name]: event.target.value });
   };
   const handleSubmit = (event) => {
+    closeModal();
     event.preventDefault();
     productsStore.createProduct(product);
-    closeModal();
   };
 
   return (
@@ -61,7 +61,7 @@ const ProductModal = ({ isOpen, closeModal, createProduct }) => {
         </div>
         <div className="form-group">
           <label>Image</label>
-          <input required type="img" className="form-control" name="Image" />
+          <input required type="image" className="form-control" name="Image" />
         </div>
         <CreateButtonStyled className="btn float-right">
           Create
